@@ -1,0 +1,22 @@
+﻿{
+    "session_id":  "20260314-111424-228",
+    "status":  "PASS",
+    "started_at_utc":  "2026-03-14T03:14:24.2688133Z",
+    "finished_at_utc":  "2026-03-14T03:14:24.5834582Z",
+    "duration_ms":  315,
+    "exit_code":  0,
+    "command":  "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$ErrorActionPreference=\u0027Stop\u0027; $required=@(\u0027.codex/SOUL.md\u0027,\u0027.codex/USER.md\u0027,\u0027.codex/MEMORY.md\u0027,\u0027.codex/TOOLS.md\u0027,\u0027.codex/HEARTBEAT.md\u0027,\u0027.codex/memory/2026-03-14-openclaw-setup.md\u0027); foreach($path in $required){ if(-not (Test-Path $path)){ throw (\u0027Missing \u0027 + $path) } }; $agents=Get-Content -Raw \u0027AGENTS.md\u0027; foreach($token in @(\u0027.codex/SOUL.md\u0027,\u0027.codex/USER.md\u0027,\u0027.codex/memory/\u0027,\u0027.codex/MEMORY.md\u0027)){ if($agents -notmatch [regex]::Escape($token)){ throw (\u0027AGENTS missing \u0027 + $token) } }; $valid=Get-Content -Raw \u0027release_valid.txt\u0027; foreach($token in @(\u0027capability_summary:\u0027,\u0027knowledge_scope:\u0027,\u0027skills:\u0027,\u0027applicable_scenarios:\u0027,\u0027version_notes:\u0027)){ if($valid -notmatch [regex]::Escape($token)){ throw (\u0027release_valid missing \u0027 + $token) } }; $invalid=Get-Content -Raw \u0027release_invalid.txt\u0027; foreach($token in @(\u0027knowledge_scope:\u0027,\u0027skills:\u0027,\u0027applicable_scenarios:\u0027)){ if($invalid -match [regex]::Escape($token)){ throw (\u0027release_invalid unexpectedly contains \u0027 + $token) } }; $memory=Get-Content -Raw \u0027.codex/memory/2026-03-14-openclaw-setup.md\u0027; if($memory -notmatch \u0027已读取根\u0027){ throw \u0027memory evidence missing read trace\u0027 }; $mainMemory=Get-Content -Raw \u0027.codex/MEMORY.md\u0027; if($mainMemory -notmatch \u0027OpenClaw\u0027){ throw \u0027main memory missing setup trace\u0027 }; Write-Output \u0027PASS .codex files\u0027; Write-Output \u0027PASS AGENTS order\u0027; Write-Output \u0027PASS release semantics\u0027; Write-Output \u0027PASS memory read write evidence\u0027\"",
+    "workspace_root":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo",
+    "session_path":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228",
+    "logs_path":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228\\logs",
+    "tmp_path":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228\\tmp",
+    "artifacts_path":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228\\artifacts",
+    "run_log":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228\\logs\\test-run.log",
+    "report_path":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228\\report.md",
+    "report_json":  "D:\\code\\AI\\J-Agents\\PortraitRpDemo\\.test\\20260314-111424-228\\report.json",
+    "tmp_file_count":  0,
+    "tmp_total_bytes":  0,
+    "artifact_file_count":  0,
+    "artifact_total_bytes":  0,
+    "log_total_bytes":  1610
+}
